@@ -1,0 +1,191 @@
+/* 定义变量 */
+/* 头部公共样式 */
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+img {
+  /* 解决图标3px的问题 */
+  vertical-align: middle;
+}
+/* 第一方案  加padding 给 main相对定位个固定高度 */
+body {
+  padding: 0.45rem 0;
+  height: 100vh;
+}
+#main {
+  /* 继承body内容的高度 */
+  height: 100%;
+  /* 给main设置相对定位  以为MUI区域滚动的容器设置了绝对定位 */
+  position: relative;
+}
+/* 第二张方案  直接修改定位值 */
+/* 头部的公共样式 */
+#header {
+  background-color: #006699;
+  display: flex;
+  padding-left: 0.45rem;
+  padding-right: 0.45rem;
+  height: 0.45rem;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+#header h4 {
+  margin: 0;
+  width: 2.85rem;
+  text-align: center;
+  line-height: 0.45rem;
+  font-weight: normal;
+}
+#header a {
+  width: 0.45rem;
+  height: 0.45rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+  line-height: 0.45rem;
+  color: #fff;
+}
+#footer {
+  width: 100vw;
+  height: 0.45rem;
+  background-color: #006699;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+#footer ul {
+  display: flex;
+}
+#footer ul li {
+  width: 25vw;
+}
+#footer ul li a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 0.085rem;
+}
+#footer ul li a span {
+  display: block;
+}
+/* 主页导航条的样式 */
+#nav {
+  padding: 0.1rem;
+}
+#nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+#nav ul li {
+  width: 1.1833rem;
+}
+#nav ul li a {
+  display: block;
+}
+#nav ul li a img {
+  width: 100%;
+}
+/* 广告区域的样式 */
+#banner {
+  display: flex;
+  padding: 0.1rem;
+}
+#banner .banner-left {
+  /* flex:2; */
+  width: 2.3667rem;
+  height: 2.4rem;
+}
+#banner .banner-left a {
+  /* 里面子元素转块  不存在缝隙 */
+  display: flex;
+}
+#banner .banner-left a img {
+  width: 50%;
+  height: 1.2rem;
+}
+#banner .banner-right {
+  /*   flex: 1; */
+  width: 1.1833rem;
+  height: 2.4rem;
+}
+#banner .banner-right a {
+  display: block;
+}
+#banner .banner-right a img {
+  width: 100%;
+  height: 2.4rem;
+}
+/* 品牌专区 */
+#brand {
+  padding: 0.1rem;
+}
+#brand .title a {
+  display: block;
+}
+#brand .title a img {
+  width: 100%;
+}
+#brand .content ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+#brand .content ul li {
+  width: 25%;
+}
+#brand .content ul li a {
+  display: block;
+}
+#brand .content ul li a img {
+  width: 100%;
+}
+/* 运动生活专区 */
+#sport,
+#women,
+#man {
+  padding: 0.1rem;
+}
+#sport .title a,
+#women .title a,
+#man .title a {
+  display: block;
+}
+#sport .title a img,
+#women .title a img,
+#man .title a img {
+  width: 100%;
+}
+#sport .content ul,
+#women .content ul,
+#man .content ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+#sport .content ul li,
+#women .content ul li,
+#man .content ul li {
+  width: 50%;
+}
+#sport .content ul li a.product,
+#women .content ul li a.product,
+#man .content ul li a.product {
+  margin-top: 10px;
+  background-color: #fff;
+  text-align: center;
+  display: block;
+  box-shadow: 0 0 2px hotpink;
+  overflow: hidden;
+}
+#sport .content ul li a.product .product-img,
+#women .content ul li a.product .product-img,
+#man .content ul li a.product .product-img {
+  width: 100%;
+}
