@@ -141,3 +141,17 @@ body {
   overflow: hidden;
   line-height: 0.14rem;
 }
+/* 中间主题区域样式 */
+#main {
+  background-color: #fff;
+  /* 搜索历史的样式 */
+}
+#main .search-history span {
+  font-size: 0.14rem;
+}
+#main .search-history a {
+  color: #666;
+}
+#main .search-history .mui-card-content .fa-times {
+  line-height: 0.17rem;
+}

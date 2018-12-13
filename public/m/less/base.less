@@ -38,6 +38,7 @@ body{
     display: flex;
     padding-left: 0.45rem;
     padding-right: 0.45rem;
+    width: 100vw;
     height: 0.45rem;
     color: #fff;
     position: fixed;
@@ -51,15 +52,30 @@ body{
         line-height: 0.45rem;
         font-weight: normal;
     }
+    form{
+        width: 100%;
+        padding-top: 0.05rem;
+        input{
+            background-color: #fff;
+            text-align: left;
+            margin-bottom: 0;
+            font-size: 0.14rem;
+        }
+    }
     a{
         width: 0.45rem;
         height: 0.45rem;
         position: absolute;
-        right: 0;
         top: 0;
         text-align: center;
         line-height: 0.45rem;
         color: #fff;
+        &:first-of-type{
+            left: 0;
+        }
+        &:last-of-type{
+            right: 0;
+        }
     }
 }
 
@@ -83,6 +99,58 @@ body{
                 padding: 0.085rem;
                 span{
                     display: block;
+                }
+            }
+        }
+    }
+}
+
+/* 搜索表单的公共样式 */
+.form-search{
+    display: flex;
+    padding: 10px;
+    .input-search{
+        flex:1;
+        height: 0.34rem;
+        background-color: #fff;
+        border: 1px solid @main-color;
+        text-align: left;
+        font-size: 0.14rem;
+        margin-bottom: 0;
+        border-radius: 0.06rem 0 0 0.06rem;
+    }
+    .btn-search{
+        width: 0.6rem;
+        height: 0.34rem;
+        background-color: @main-color;
+        border-color: @main-color;
+        border-radius: 0 0.06rem 0.06rem 0;
+    }
+}
+
+/* 商品列表的公共样式 */
+.product-list{
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+        li{
+            width: 50%;
+            padding: 0 5px;
+            a.product{
+                margin-top: 10px;
+                background-color: #fff;
+                text-align: center;
+                display: block;
+                box-shadow: 0 0 2px hotpink;
+                overflow: hidden;
+                .product-img{
+                    width: 100%;
+                }
+                .product-name{
+                    /* 限制只显示2行文字超出隐藏 */
+                    height: 28px;
+                    overflow: hidden;
+                    line-height: 0.14rem;
                 }
             }
         }
