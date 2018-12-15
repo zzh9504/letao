@@ -137,29 +137,40 @@ body {
 }
 .product-list ul li a.product .product-name {
   /* 限制只显示2行文字超出隐藏 */
-  height: 28px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   overflow: hidden;
-  line-height: 0.14rem;
+  text-overflow: ellipsis;
 }
 #main {
-  background-color: #fff;
+  font-size: 0.14rem;
 }
-#main .product-list .title {
+#main .product-size {
+  line-height: 0.38rem;
+}
+#main .product-size .btn-size {
+  margin-top: 0.05rem;
+}
+#main .product-size .btn-size.active {
+  background-color: orange;
+}
+/* 把详情页面的底部的样式覆盖 */
+#footer {
   background-color: #ccc;
 }
-#main .product-list .title ul {
-  display: flex;
-}
-#main .product-list .title ul li {
+#footer ul li {
   flex: 1;
+  padding: 0.05rem;
 }
-#main .product-list .title ul li.active a {
-  color: red;
+#footer ul li button {
+  width: 100%;
 }
-#main .product-list .title ul li a {
-  display: block;
+#footer ul li:first-child {
+  width: 0.625rem;
+  flex: none;
+}
+#footer ul li:first-child a {
   color: #666;
-  font-size: 0.12rem;
-  text-align: center;
-  line-height: 0.3rem;
+  font-size: 0.2rem;
 }

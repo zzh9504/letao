@@ -148,9 +148,15 @@ body{
                 }
                 .product-name{
                     /* 限制只显示2行文字超出隐藏 */
-                    height: 28px;
+                    // height: 28px;
+                    //改成弹性伸缩盒子模型
+                    display:-webkit-box;
+                    //伸缩盒子方向  垂直方向
+                    -webkit-box-orient: vertical;
+                    //设置文字显示的行数
+                    -webkit-line-clamp:3;
                     overflow: hidden;
-                    line-height: 0.14rem;
+                    text-overflow: ellipsis;
                 }
             }
         }
