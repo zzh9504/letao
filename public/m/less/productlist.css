@@ -141,17 +141,25 @@ body {
   overflow: hidden;
   line-height: 0.14rem;
 }
-/* 中间主题区域样式 */
 #main {
   background-color: #fff;
-  /* 搜索历史的样式 */
 }
-#main .search-history .mui-card-header span {
-  font-size: 0.14rem;
+#main .product-list .title {
+  background-color: #fff;
 }
-#main .search-history .mui-card-header a {
+#main .product-list .title ul {
+  display: flex;
+}
+#main .product-list .title ul li {
+  flex: 1;
+}
+#main .product-list .title ul li.active a {
+  color: red;
+}
+#main .product-list .title ul li a {
+  display: block;
   color: #666;
-}
-#main .search-history .mui-card-content .fa-times {
-  line-height: 0.17rem;
+  font-size: 0.12rem;
+  text-align: center;
+  line-height: 0.3rem;
 }

@@ -34,7 +34,7 @@ $(function(){
         historyData = {rows:historyData};
         console.log(historyData);
 
-        var html = template('seatchListTpl',historyData);
+        var html = template('searchListTpl',historyData);
         $('.search-history .mui-table-view').html(html);
     }
 
