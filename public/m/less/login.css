@@ -1,0 +1,156 @@
+/* 定义变量 */
+/* 头部公共样式 */
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+img {
+  /* 解决图标3px的问题 */
+  vertical-align: middle;
+}
+/* 第一方案  加padding 给 main相对定位个固定高度 */
+body {
+  padding: 0.45rem 0;
+  height: 100vh;
+}
+#main {
+  /* 继承body内容的高度 */
+  height: 100%;
+  /* 给main设置相对定位  以为MUI区域滚动的容器设置了绝对定位 */
+  position: relative;
+}
+/* 第二张方案  直接修改定位值 */
+/* 头部的公共样式 */
+#header {
+  background-color: #006699;
+  display: flex;
+  padding-left: 0.45rem;
+  padding-right: 0.45rem;
+  width: 100vw;
+  height: 0.45rem;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+#header h4 {
+  margin: 0;
+  width: 2.85rem;
+  text-align: center;
+  line-height: 0.45rem;
+  font-weight: normal;
+}
+#header form {
+  width: 100%;
+  padding-top: 0.05rem;
+}
+#header form input {
+  background-color: #fff;
+  text-align: left;
+  margin-bottom: 0;
+  font-size: 0.14rem;
+}
+#header a {
+  width: 0.45rem;
+  height: 0.45rem;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  line-height: 0.45rem;
+  color: #fff;
+}
+#header a:first-of-type {
+  left: 0;
+}
+#header a:last-of-type {
+  right: 0;
+}
+#footer {
+  width: 100vw;
+  height: 0.45rem;
+  background-color: #006699;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+#footer ul {
+  display: flex;
+}
+#footer ul li {
+  width: 25vw;
+}
+#footer ul li a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 0.085rem;
+}
+#footer ul li a span {
+  display: block;
+}
+/* 搜索表单的公共样式 */
+.form-search {
+  display: flex;
+  padding: 10px;
+}
+.form-search .input-search {
+  flex: 1;
+  height: 0.34rem;
+  background-color: #fff;
+  border: 1px solid #006699;
+  text-align: left;
+  font-size: 0.14rem;
+  margin-bottom: 0;
+  border-radius: 0.06rem 0 0 0.06rem;
+}
+.form-search .btn-search {
+  width: 0.6rem;
+  height: 0.34rem;
+  background-color: #006699;
+  border-color: #006699;
+  border-radius: 0 0.06rem 0.06rem 0;
+}
+/* 商品列表的公共样式 */
+.product-list ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product-list ul li {
+  width: 50%;
+  padding: 0 5px;
+}
+.product-list ul li a.product {
+  margin-top: 10px;
+  background-color: #fff;
+  text-align: center;
+  display: block;
+  box-shadow: 0 0 2px hotpink;
+  overflow: hidden;
+}
+.product-list ul li a.product .product-img {
+  width: 100%;
+}
+.product-list ul li a.product .product-name {
+  /* 限制只显示2行文字超出隐藏 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#main .btn-get-vcode {
+  width: 1rem;
+  position: absolute;
+  right: 0;
+}
+#main .mui-button-row {
+  padding: 5px;
+}
+#main .mui-btn-primary.btn-register {
+  width: 100%;
+}

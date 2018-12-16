@@ -1,4 +1,8 @@
 $(function() {
+    /*1. 根据当前url中参数的商品id 获取商品详情数据渲染
+    	1. 通过封装好的查询url参数值的函数获取 id参数的值
+    	2. 请求API获取数据 传入当前id参数
+    	3. 渲染商品详情*/
     // 1. 通过封装好的查询url参数值的函数获取 id参数的值
     var id = getQueryString('id');
     // 2. 请求API获取数据 传入当前id参数
@@ -39,14 +43,22 @@ $(function() {
         }
     });
 
-    /* 2. 加入购物车 */
+    /* 
+    2. 加入购物车
+    	1. 当点击加入购物车的时候 获取 选择的尺码数量信息
+    	2. 判断尺码和数量是否选择 如果没有选择 提示用户选择尺码和数量
+    	3. 调用加入购物车的API传入当前商品id 尺码 数量 加入购物车
+    	4. 调用APi的时候 post 提交一般是post
+    	5. 提交如果当前用户没有登录 提示用户去登录
+    	6. 加入成功 提示用是否去购物车查看
+    */
     // 1. 给加入购车按钮添加点击事件
     $('.btn-add-cart').on('tap', function() {
         // 2. 获取当前选择尺码和数量信息
         var size = $('.btn-size.active').data('size');
         // 3. 判断如果尺码没有选择 提示用户选择尺码
         if (!size) {
-            // toast 消息提示框 
+            // toast 消息提示框 提示用户选择尺码 第一个参数 提示内容 第二个参数提示配置项
             mui.toast('请选择尺码！', { duration: 3000, type: 'div' });
             // 注意当用户没有选择 后面的代码不执行的要return  return false 不仅结束还可以阻止默认行为
             return false;
@@ -69,17 +81,25 @@ $(function() {
         			// 7. 判断加入购物车是否成功 如果返回值success表示成功 成功提示用户去购物车查看
         			if(data.success){
         				// 8. 提示用户是否去购物车查看
+        				// 第一个参数是提示的内容 第二个参数是提示的标题 第三个参数是提示按钮的文字(数组)  第四个的回调函数 当点击按钮的后会触发的回调函数
         				mui.confirm('加入购物车成功！ 是否要去购物车查看?', 'hello 单身狗', ['去看','发呆','不看'], function(e){
         					// 获取当前用户点击了左边的还是右边
         					console.log(e);
         					if(e.index == 0){
         						//点击了左边 跳转到购物车查看
+                                location = 'cart.html';
         					}else{
         						// 点击否就不看 表示还继续吗
         						mui.toast('你继续加一件就可以脱离单身了！', { duration: 3000, type: 'div' });
         					}
         				});
-        			}
+        			}else{
+                        // 9. 加入失败表示未登录  跳转到登录页面 指定当前登录成功要返回的页面 返回当前的详情页面
+                        console.log(location);
+                        // location = 'login.html?returnUrl='+'http://localhost:3000/m/detail.html?id=1';
+                        // location.href 就是当前页面的url
+                        location = 'login.html?returnUrl='+location.href;
+                    }
         		}
         })
     });
