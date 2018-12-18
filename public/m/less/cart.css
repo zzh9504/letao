@@ -1,7 +1,8 @@
 /* 定义变量 */
+/* 头部公共样式 */
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 /* 页面的文字都默认14px */
 body {
@@ -18,8 +19,7 @@ img {
   /* 解决图标3px的问题 */
   vertical-align: middle;
 }
-/* 因为MUI帮你写了样式初始化不需要写了 只要使用框架 都不需要写样式初始化 */
-/* 第一张方案 加padding 给 main相对定位个固定高度 */
+/* 第一方案  加padding 给 main相对定位个固定高度 */
 body {
   padding: 0.45rem 0;
   height: 100vh;
@@ -27,19 +27,14 @@ body {
 #main {
   /* 继承body内容的高度 */
   height: 100%;
-  /* 给main设置相对定位 以为MUI区域滚动的容器设置了绝对定位 */
+  /* 给main设置相对定位  以为MUI区域滚动的容器设置了绝对定位 */
   position: relative;
 }
-/* 第二张方案 直接修改定位值 */
-/* .mui-scroll-wrapper{
-    top: 0.45rem;
-    bottom: 0.45rem;
-} */
+/* 第二张方案  直接修改定位值 */
 /* 头部的公共样式 */
 #header {
   background-color: #006699;
   display: flex;
-  /* 给父元素设置padding把内容往中间挤  2边如果有图标 使用定位 左边定位在左边 右边定位在右边 */
   padding-left: 0.45rem;
   padding-right: 0.45rem;
   width: 100vw;
@@ -64,7 +59,6 @@ body {
 #header form input {
   background-color: #fff;
   text-align: left;
-  /* 注意默认有一个margin去掉 */
   margin-bottom: 0;
   font-size: 0.14rem;
 }
@@ -77,13 +71,12 @@ body {
   line-height: 0.45rem;
   color: #fff;
 }
-#header a:first-child {
+#header a:first-of-type {
   left: 0;
 }
-#header a:last-child {
+#header a:last-of-type {
   right: 0;
 }
-/* 底部的公共样式 */
 #footer {
   width: 100vw;
   height: 0.45rem;
@@ -109,7 +102,6 @@ body {
   display: block;
 }
 /* 搜索表单的公共样式 */
-/* 搜索表单样式 */
 .form-search {
   display: flex;
   padding: 10px;
@@ -122,8 +114,6 @@ body {
   text-align: left;
   font-size: 0.14rem;
   margin-bottom: 0;
-  /* border-top-right-radius:0;
-            border-bottom-right-radius:0; */
   border-radius: 0.06rem 0 0 0.06rem;
 }
 .form-search .btn-search {
@@ -131,8 +121,6 @@ body {
   height: 0.34rem;
   background-color: #006699;
   border-color: #006699;
-  /* border-top-left-radius:0;
-            border-bottom-left-radius:0; */
   border-radius: 0 0.06rem 0.06rem 0;
 }
 /* 商品列表的公共样式 */
@@ -144,28 +132,23 @@ body {
   width: 50%;
   padding: 0 5px;
 }
-.product-list ul li .product {
+.product-list ul li a.product {
   margin-top: 10px;
   background-color: #fff;
   text-align: center;
   display: block;
-  box-shadow: 0px 0px 2px hotpink;
+  box-shadow: 0 0 2px hotpink;
   overflow: hidden;
 }
-.product-list ul li .product .product-img {
+.product-list ul li a.product .product-img {
   width: 100%;
 }
-.product-list ul li .product .product-name {
+.product-list ul li a.product .product-name {
   /* 限制只显示2行文字超出隐藏 */
-  /* 改成弹性伸缩盒子模型 */
   display: -webkit-box;
-  /* 伸缩盒子方向 垂直方向 */
   -webkit-box-orient: vertical;
-  /* 设置文字显示的行数 */
   -webkit-line-clamp: 3;
-  /* 超出部分隐藏 */
   overflow: hidden;
-  /* 文本超出后显示... */
   text-overflow: ellipsis;
 }
 /* 公共的遮罩层和加载中动画 */
@@ -276,4 +259,74 @@ body {
   40% {
     transform: scale(1);
   }
+}
+body {
+  /* 由于购物车底部多加了一个订单 固定定位 中间main再减少订单高度 30px */
+  padding-bottom: 0.75rem;
+}
+/* 中间主体样式 */
+#main .mui-media .mui-pull-left.mui-checkbox .mui-media-object {
+  line-height: 0.8rem;
+  height: 0.8rem;
+  max-width: 0.8rem;
+}
+#main .mui-media .mui-pull-left.mui-checkbox input {
+  /* 取消定位 */
+  position: static;
+  display: block;
+  margin: 0 auto;
+}
+#main .mui-media .mui-pull-left.mui-checkbox input::before {
+  color: hotpink;
+}
+#main .mui-media .mui-media-body {
+  line-height: 0.36rem;
+}
+#main .mui-media .mui-media-body .product-name {
+  /* MUI默认设置强制不换行的属性 去掉强制不换行属性 */
+  white-space: normal;
+  color: #666;
+  line-height: 0.2rem;
+}
+#main .mui-media .mui-media-body .product-price span {
+  color: red;
+  font-weight: 600;
+}
+#main .mui-media .mui-media-body .product-price del {
+  color: #ccc;
+}
+#main .mui-media .mui-media-body .product-params {
+  display: flex;
+  /* 两端对齐 */
+  justify-content: space-between;
+}
+/* 订单区域样式 */
+#order {
+  position: fixed;
+  background-color: #fff;
+  bottom: 0.45rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+  height: 0.3rem;
+}
+#order .order-total {
+  padding-left: 0.1rem;
+  line-height: 0.3rem;
+  font-weight: 600;
+  color: red;
+}
+.mui-popup {
+  width: 3.2rem;
+}
+/* 确认框动态弹出来在页面最上面的不是谁的子元素 */
+.product-size {
+  line-height: 0.38rem;
+}
+.product-size .btn-size {
+  margin-top: 0.05rem;
+}
+.product-size .btn-size.active {
+  background-color: orange;
 }

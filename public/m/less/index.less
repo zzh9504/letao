@@ -1,4 +1,5 @@
-@import "base.less";
+@import 'base.less';
+
 /* 主页导航条的样式 */
 
 #nav {
@@ -18,6 +19,7 @@
     }
 }
 
+
 /* 广告区域的样式 */
 
 #banner {
@@ -28,8 +30,9 @@
         width: 2.3667rem;
         height: 2.4rem;
         a {
-            /* 里面子元素转块  不存在缝隙 */
+            /* 里面子元素转块 不存在缝隙 */
             display: flex;
+            /* font-size: 0; 去掉文字大小 去掉间距*/
             img {
                 width: 50%;
                 height: 1.2rem;
@@ -37,7 +40,7 @@
         }
     }
     .banner-right {
-        /*   flex: 1; */
+        /* flex:1; */
         width: 1.1833rem;
         height: 2.4rem;
         a {
@@ -50,26 +53,28 @@
     }
 }
 
+
 /* 品牌专区 */
-#brand{
+
+#brand {
     padding: 0.1rem;
-    .title{
-        a{
+    .title {
+        a {
             display: block;
-            img{
+            img {
                 width: 100%;
             }
         }
     }
-    .content{
-        ul{
+    .content {
+        ul {
             display: flex;
             flex-wrap: wrap;
-            li{
+            li {
                 width: 25%;
-                a{
+                a {
                     display: block;
-                    img{
+                    img {
                         width: 100%;
                     }
                 }
@@ -78,37 +83,18 @@
     }
 }
 
+
 /* 运动生活专区 */
-#sport,
-#women,
-#man{
+
+#sport,#women,#man {
     padding: 0.1rem;
-    .title{
-        a{
+    .title {
+        a {
             display: block;
-            img{
+            img {
                 width: 100%;
             }
         }
     }
-    .content{
-        ul{
-            display: flex;
-            flex-wrap: wrap;
-            li{
-                width: 50%;
-                a.product{
-                    margin-top: 10px;
-                    background-color: #fff;
-                    text-align: center;
-                    display: block;
-                    box-shadow: 0 0 2px hotpink;
-                    overflow: hidden;
-                    .product-img{
-                        width: 100%;
-                    }
-                }
-            }
-        }
-    }
+    
 }

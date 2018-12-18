@@ -117,28 +117,49 @@
             </li>
         </ul>
     </footer>
+    <!-- mask遮罩层 -->
+    <div class="mask">
+        <div class="spinner">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>
+    </div>
     <!-- 定义分类左侧的模板 -->
     <script id="categoryLeftTpl" type="text/html">
         {{each rows value index}}
         <!-- 判断索引是否为0  为0返回active类名 不为0 返回空 -->
-         <li class="{{index == 0 ? 'active' : '' }}"><a href="#" data-id="{{value.id}}">{{value.categoryName}}</a></li>
+        <li class="{{index == 0 ? 'active' : '' }}"><a href="#" data-id="{{value.id}}">{{value.categoryName}}</a></li>
         {{/each}}
     </script>
     <!-- 定义分类右侧的模板 -->
     <script id="categoryRightTpl" type="text/html">
         <!-- 判断数组的长度是否大于0  大于0就进行遍历 -->
-        {{if rows.length>0}}
-            {{each rows value}}
-                <li>
-                    <a href="#">
-                        <img src="{{value.brandLogo}}" alt="">
-                        <p>{{value.brandName}}</p>
-                    </a>
-                </li>
-            {{/each}}
-        {{else}}
-            <!-- 如果不大于0表示没有数据 提示没有品牌数据 -->
-            <p>当前品牌暂无数据!</p>
+        {{if rows.length>0}} {{each rows value}}
+        <li>
+            <a href="#">
+                <img src="{{value.brandLogo}}" alt="">
+                <p>{{value.brandName}}</p>
+            </a>
+        </li>
+        {{/each}} {{else}}
+        <!-- 如果不大于0表示没有数据 提示没有品牌数据 -->
+        <p>当前品牌暂无数据!</p>
         {{/if}}
     </script>
     <!-- 引入zepto的JS 发送请求之类的 和 获取元素 添加事件之类 -->

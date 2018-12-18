@@ -252,6 +252,10 @@
             </li>
         </ul>
     </footer>
+    <!-- mask遮罩层 -->
+    <div class="mask">
+        <img src="images/loading.gif" alt="">
+    </div>
     <!-- 创建一个购物车商品列表的模板 -->
     <script id="cartListTpl" type="text/html">
         {{if data.length > 0}}
@@ -259,15 +263,16 @@
             <li class="mui-table-view-cell mui-media">
                 <!-- 右边默认看不到的内容 -->
                 <div class="mui-slider-right mui-disabled">
-                    <a class="mui-btn mui-btn-primary">编辑</a>
-                    <a class="mui-btn mui-btn-danger">删除</a>
+                    <!-- 由于编辑需要很多数据 把整个数据对象存到自定义属性中 通过自定义属性拿到这个编辑商品对象 -->
+                    <a class="mui-btn mui-btn-primary btn-edit"  data-product="{{value}}">编辑</a>
+                    <a class="mui-btn mui-btn-danger btn-delete" data-id="{{value.id}}">删除</a>
                 </div>
                 <!-- 左边默认显示的内容  当滑动的时候 让左边盒子位移 左边盒子位移 右边挨着左边跟着过来了-->
                 <a href="javascript:;" class="mui-slider-handle">
                     <div class="mui-pull-left mui-checkbox">
                         <!-- 图片是一个数组 取数组中的第一个图片的图片地址 -->
                         <img class="mui-media-object" src="{{value.pic[0].picAddr}}">
-                        <input name="checkbox1" value="Item 1" type="checkbox">
+                        <input name="checkbox1" value="Item 1" type="checkbox" class="choose" data-price="{{value.price}}" data-num="{{value.num}}">
                     </div>
                     <div class="mui-media-body">
                         <p class="product-name">{{value.proName}}</p>
@@ -291,6 +296,23 @@
         {{else}}
             <p>你的购物车空空如也!</p>
         {{/if}}
+    </script>
+    <!-- 创建一个编辑商品的模板 -->
+    <script id="editCartTpl" type="text/html">
+        <li class="mui-table-view-cell product-size">
+            尺码： {{each productSize value}}
+            <!-- value是每个尺码  size是当前商品选择之前的尺码 -->
+            <button type="button" class="btn-size {{value == size ? 'active' : ''}}" data-size="{{value}}">{{value}}</button>
+            {{/each}}
+        </li>
+        <li class="mui-table-view-cell">
+            数量：
+            <div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='{{productNum}}'>
+                <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+                <input class="mui-numbox-input" type="number" />
+                <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+            </div> 剩余：<span>{{productNum}}</span>件
+        </li>
     </script>
     <!-- 引入zepto的JS 发送请求之类的 和 获取元素 添加事件之类 -->
     <script src="lib/zepto/zepto.min.js"></script>
